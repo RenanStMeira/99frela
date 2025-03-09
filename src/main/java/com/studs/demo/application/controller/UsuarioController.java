@@ -2,8 +2,8 @@ package com.studs.demo.application.controller;
 
 import com.studs.demo.domain.content.UsuarioContent;
 import com.studs.demo.domain.model.Usuario;
-import com.studs.demo.domain.usuario.request.UsuarioRequest;
-import com.studs.demo.domain.usuario.response.UsuarioResponse;
+import com.studs.demo.domain.model.request.UsuarioRequest;
+import com.studs.demo.domain.model.response.UsuarioResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@RestController("usuario")
 public class UsuarioController {
 
     private final UsuarioContent content;

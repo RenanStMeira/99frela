@@ -4,8 +4,8 @@ import com.studs.demo.cache.usecase.UsuarioCahceUseCase;
 import com.studs.demo.domain.mapper.UsuarioMapper;
 import com.studs.demo.domain.model.Usuario;
 import com.studs.demo.domain.service.UsuarioService;
-import com.studs.demo.domain.usuario.request.UsuarioRequest;
-import com.studs.demo.domain.usuario.response.UsuarioResponse;
+import com.studs.demo.domain.model.request.UsuarioRequest;
+import com.studs.demo.domain.model.response.UsuarioResponse;
 import org.springframework.stereotype.Component;
 
 @Component

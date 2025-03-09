@@ -1,6 +1,7 @@
 package com.studs.demo.cache.usecase;
 
 import com.studs.demo.cache.model.CacheModel;
+import com.studs.demo.cache.usecase.interfaces.IUsuarioCache;
 import com.studs.demo.domain.model.Usuario;
 import org.springframework.stereotype.Component;
 
@@ -27,6 +28,6 @@ public class UsuarioCahceUseCase implements IUsuarioCache {
 
     @Override
     public void saveUsuarioCache(Usuario usuario) {
-        cache.put(usuario.idUsuario().toString(), usuario);
+        cache.put(usuario.getIdUsuario().toString(), usuario);
     }
 }

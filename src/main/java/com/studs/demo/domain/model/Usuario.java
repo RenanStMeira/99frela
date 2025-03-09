@@ -1,38 +1,98 @@
 package com.studs.demo.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
-public record Usuario(
-        @JsonProperty("idUsuario") Long idUsuario,
-        @JsonProperty("nome") String nome,
-        @JsonProperty("email") String email,
-        @JsonProperty("senha") String senha,
-        @JsonProperty("telefone") String telefone,
-        @JsonProperty("endereco") String endereco,
-        @JsonProperty("status") String status // e.g., "pendente", "aprovado"
-) {
-    public Usuario {
-        if (nome == null || nome.isBlank()) {
-            throw new IllegalArgumentException("Nome não pode ser nulo ou vazio");
-        }
-        if (email == null || email.isBlank()) {
-            throw new IllegalArgumentException("Email não pode ser nulo ou vazio");
-        }
-        if (senha == null || senha.isBlank()) {
-            throw new IllegalArgumentException("Senha não pode ser nulo ou vazio");
-        }
-        if (telefone == null || telefone.isBlank()) {
-            throw new IllegalArgumentException("Telefone não pode ser nulo ou vazio");
-        }
-        if (endereco == null || endereco.isBlank()) {
-            throw new IllegalArgumentException("Endereço não pode ser nulo ou vazio");
-        }
-        if (status == null || status.isBlank()) {
-            throw new IllegalArgumentException("Status não pode ser nulo ou vazio");
-        }
+@Entity
+public class Usuario {
+    @Id
+    @JsonProperty("idUsuario")
+    private Long idUsuario;
+    @JsonProperty("nome")
+    private String nome;
+    @JsonProperty("email")
+    private String email;
+    @JsonProperty("senha")
+    private String senha;
+    @JsonProperty("telefone")
+    private String telefone;
+    @JsonProperty("endereco")
+    private String endereco;
+    @JsonProperty("status")
+    private String status; // e.g., "pendente", "aprovado"
+
+    public Usuario() {
+    }
+
+    public Usuario(Long idUsuario, String nome, String email, String senha, String telefone, String endereco, String status) {
+        this.idUsuario = idUsuario;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.telefone = telefone;
+        this.endereco = endereco;
+        this.status = status;
     }
 
     public Usuario(String nome, String email, String senha, String telefone, String endereco) {
         this(null, nome, email, senha, telefone, endereco, "aprovado");
+    }
+
+    // Getters e setters
+    public Long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

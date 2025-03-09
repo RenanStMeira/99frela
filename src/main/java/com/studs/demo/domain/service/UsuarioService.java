@@ -20,7 +20,7 @@ public class UsuarioService {
     }
 
     public Usuario createUsuario(@Valid @NotNull Usuario usuario) {
-        validateEmailUniqueness(usuario.email());
+        validateEmailUniqueness(usuario.getEmail());
         return repository.save(usuario);
     }
 
@@ -33,7 +33,7 @@ public class UsuarioService {
     }
 
     public Usuario updateUsuario(@Valid @NotNull Usuario usuario) {
-        validateEmailUniqueness(usuario.email());
+        validateEmailUniqueness(usuario.getEmail());
         return repository.save(usuario);
     }
 

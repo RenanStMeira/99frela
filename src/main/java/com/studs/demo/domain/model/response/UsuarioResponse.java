@@ -1,4 +1,4 @@
-package com.studs.demo.domain.usuario.response;
+package com.studs.demo.domain.model.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
