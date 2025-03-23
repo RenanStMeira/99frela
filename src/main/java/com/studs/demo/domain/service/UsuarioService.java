@@ -10,11 +10,13 @@ import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 @Service
 @Validated
 public class UsuarioService {
     private final UsuarioRepository repository;
+    Logger logger = Logger.getLogger(UsuarioService.class.getName());
 
     public UsuarioService(UsuarioRepository repository) {
         this.repository = repository;
