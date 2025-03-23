@@ -17,6 +17,6 @@ spring:
       host: localhost
       port: 6379
 
-  logging:
-    level:
-      root: DEBUG
+logging:
+  level:
+    root: DEBUG
