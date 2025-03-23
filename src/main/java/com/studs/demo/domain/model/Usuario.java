@@ -2,23 +2,31 @@ package com.studs.demo.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Usuario {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty("idUsuario")
     private Long idUsuario;
+
     @JsonProperty("nome")
     private String nome;
+
     @JsonProperty("email")
     private String email;
-    @JsonProperty("senha")
+
     private String senha;
+
     @JsonProperty("telefone")
     private String telefone;
+
     @JsonProperty("endereco")
     private String endereco;
+
     @JsonProperty("status")
     private String status; // e.g., "pendente", "aprovado"
 
@@ -39,7 +47,7 @@ public class Usuario {
         this(null, nome, email, senha, telefone, endereco, "aprovado");
     }
 
-    // Getters e setters
+    // Getters and setters
     public Long getIdUsuario() {
         return idUsuario;
     }
@@ -77,7 +85,6 @@ public class Usuario {
     }
 
     public void setTelefone(String telefone) {
-        this.telefone = telefone;
     }
 
     public String getEndereco() {

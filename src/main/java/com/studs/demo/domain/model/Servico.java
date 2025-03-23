@@ -2,6 +2,8 @@ package com.studs.demo.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.math.BigDecimal;
@@ -10,6 +12,7 @@ import java.math.BigDecimal;
 public class Servico {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty("idServico") Long idServico;
     @JsonProperty("nome") String nome;
     @JsonProperty("descricao") String descricao;
