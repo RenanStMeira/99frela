@@ -2,6 +2,8 @@ package com.studs.demo.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.time.LocalDateTime;
@@ -9,6 +11,7 @@ import java.time.LocalDateTime;
 @Entity
 public class Pedido {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty("idPedido")
     private Long idPedido;
     @JsonProperty("idUsuario")
@@ -35,6 +38,10 @@ public class Pedido {
         this.dataHora = dataHora;
         this.descricao = descricao;
         this.status = status;
+    }
+
+    public Pedido() {
+
     }
 
     public Long getIdPedido() {

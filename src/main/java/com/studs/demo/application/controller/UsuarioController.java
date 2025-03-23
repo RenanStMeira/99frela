@@ -6,12 +6,12 @@ import com.studs.demo.domain.model.request.UsuarioRequest;
 import com.studs.demo.domain.model.response.UsuarioResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@RestController("usuario")
+import java.util.List;
+
+@RestController
+@RequestMapping("/usuario")
 public class UsuarioController {
 
     private final UsuarioContent content;
@@ -44,9 +44,15 @@ public class UsuarioController {
         return new ResponseEntity<>(usuario, HttpStatus.OK);
     }
 
-    @GetMapping("deletar/{id}")
+    @DeleteMapping("deletar/{id}")
     public ResponseEntity<Void> deleteUsuario(@RequestBody Long id) {
         content.deleteUsuarioContent(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("buscar-todos")
+    public ResponseEntity<List<UsuarioResponse>> getAllUsuarios() {
+        List<UsuarioResponse> usuarios = content.getAllUsuariosContent();
+        return new ResponseEntity<>(usuarios, HttpStatus.OK);
     }
 }

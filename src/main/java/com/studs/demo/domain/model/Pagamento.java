@@ -2,6 +2,8 @@ package com.studs.demo.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.math.BigDecimal;
@@ -11,6 +13,7 @@ import java.time.LocalDateTime;
 public class Pagamento{
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty("idPagamento") Long idPagamento;
     @JsonProperty("idPedido") Long idPedido;
     @JsonProperty("idUsuario") Long idUsuario;

@@ -8,6 +8,9 @@ import com.studs.demo.domain.model.request.UsuarioRequest;
 import com.studs.demo.domain.model.response.UsuarioResponse;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Component
 public class UsuarioContent {
 
@@ -37,6 +40,12 @@ public class UsuarioContent {
 
     public UsuarioResponse updateUsuarioContent(UsuarioRequest usuarioRequest) {
         return usuarioMapper.toResponse(usuarioService.updateUsuario(usuarioMapper.toEntity(usuarioRequest)));
+    }
+
+    public List<UsuarioResponse> getAllUsuariosContent() {
+        return usuarioService.getAllUsuarios().stream()
+                .map(usuarioMapper::toResponse)
+                .collect(Collectors.toList());
     }
 
     public void deleteUsuarioContent(Long id) {
