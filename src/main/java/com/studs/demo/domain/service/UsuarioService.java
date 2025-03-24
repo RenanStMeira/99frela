@@ -2,12 +2,12 @@ package com.studs.demo.domain.service;
 
 import com.studs.demo.domain.model.Usuario;
 import com.studs.demo.domain.repository.UsuarioRepository;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;

@@ -2,11 +2,11 @@ package com.studs.demo.domain.service;
 
 import com.studs.demo.domain.model.Pedido;
 import com.studs.demo.domain.repository.PedidoRepository;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.Optional;
 
 @Service
