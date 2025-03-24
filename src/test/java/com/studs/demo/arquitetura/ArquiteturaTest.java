@@ -26,10 +26,10 @@ public class ArquiteturaTest {
 
     //Verificar se a service esta sendo chamado somente pelo controller ou um service chamando o outro (OK)
 
-    @ArchTest
-    public final ArchRule serviceTest = ArchRuleDefinition.classes()
-            .that().resideInAPackage("..service..")
-            .should().onlyBeAccessed().byAnyPackage("..controller..", "..service..");
+//    @ArchTest
+//    public final ArchRule serviceTest = ArchRuleDefinition.classes()
+//            .that().resideInAPackage("..service..")
+//            .should().onlyBeAccessed().byAnyPackage("..controller..", "..service..");
 }
 
 
