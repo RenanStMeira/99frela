@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -19,7 +20,7 @@ public class PedidoService {
     }
 
     public Pedido createPedido(@Valid @NotNull Pedido pedido) {
-        validatePedidoUniqueness(pedido);
+//        validatePedidoUniqueness(pedido);
         return repository.save(pedido);
     }
 
@@ -37,10 +38,29 @@ public class PedidoService {
         repository.deleteById(id);
     }
 
+    public List<Pedido> getAll() {
+        return repository.findAll();
+    }
+
     private void validatePedidoUniqueness(Pedido pedido) {
-        Optional<Pedido> existingPedido = repository.findById(pedido.getIdPedido());
-        if (existingPedido.isPresent()) {
-            throw new IllegalArgumentException("Pedido already exists");
+        // ✅ SÓ validar se o ID não for null (pedido existente)
+        if (pedido.getIdPedido() != null) {
+            Optional<Pedido> existing = repository.findById(pedido.getIdPedido());
+            if (existing.isPresent()) {
+                throw new IllegalArgumentException("Pedido já existe");
+            }
+        }
+
+        // OU validar por outros campos únicos
+        // Por exemplo: mesmo usuário, mesmo endereço, mesmo horário
+        List<Pedido> duplicates = repository.findByIdUsuarioAndEnderecoOrigemAndDataHora(
+                pedido.getIdUsuario(),
+                pedido.getEnderecoOrigem(),
+                pedido.getDataHora()
+        );
+
+        if (!duplicates.isEmpty()) {
+            throw new IllegalArgumentException("Já existe um pedido similar");
         }
     }
 
@@ -49,4 +69,5 @@ public class PedidoService {
             throw new IllegalArgumentException("Pedido not found");
         }
     }
+
 }

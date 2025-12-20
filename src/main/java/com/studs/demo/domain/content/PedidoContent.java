@@ -7,6 +7,8 @@ import com.studs.demo.domain.model.request.PedidoRequest;
 import com.studs.demo.domain.service.PedidoService;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class PedidoContent {
 
@@ -32,6 +34,10 @@ public class PedidoContent {
 
     public Pedido updatePedidoContent(PedidoRequest pedidoRequest) {
         return service.updatePedido(mapper.toEntity(pedidoRequest));
+    }
+
+    public List<Pedido> getAll() {
+        return service.getAll();
     }
 
     public void deletePedidoContent(Long id) {

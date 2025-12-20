@@ -2,33 +2,42 @@ package com.studs.demo.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
 public class Pedido {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty("idPedido")
     private Long idPedido;
+
     @JsonProperty("idUsuario")
     private Long idUsuario;
+
     @JsonProperty("tipoServico")
     private String tipoServico;
+
     @JsonProperty("enderecoOrigem")
     private String enderecoOrigem;
+
     @JsonProperty("enderecoDestino")
     private String enderecoDestino;
+
     @JsonProperty("dataHora")
     private LocalDateTime dataHora;
+
     @JsonProperty("descricao")
     private String descricao;
+
     @JsonProperty("status")
     private String status;
 
-    public Pedido(Long idPedido, Long idUsuario, String tipoServico, String enderecoOrigem, String enderecoDestino, LocalDateTime dataHora, String descricao, String status) {
-        this.idPedido = idPedido;
-        this.idUsuario = idUsuario;
+    public Pedido(String tipoServico, String enderecoOrigem, String enderecoDestino, LocalDateTime dataHora, String descricao, String status) {
         this.tipoServico = tipoServico;
         this.enderecoOrigem = enderecoOrigem;
         this.enderecoDestino = enderecoDestino;
@@ -37,12 +46,11 @@ public class Pedido {
         this.status = status;
     }
 
-    public Long getIdPedido() {
-        return idPedido;
+    public Pedido() {
     }
 
-    public void setIdPedido(Long idPedido) {
-        this.idPedido = idPedido;
+    public Long getIdPedido() {
+        return idPedido;
     }
 
     public Long getIdUsuario() {
